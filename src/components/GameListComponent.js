@@ -11,7 +11,7 @@ class GameListComponent extends React.Component {
     return (
       <ul>
         {this.props.games.map(function(game) {
-        return (<li key={game._id}>Game by {game.playerOne}</li>);
+          return (<GameListItemComponent key={game._id} game={game} onClick={component.selectGame.bind(component)}/>);
         })}
       </ul>
     );
