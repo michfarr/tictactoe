@@ -1,4 +1,10 @@
 import React from 'react';
+import TextField from 'material-ui/lib/text-field';
+import RaisedButton from 'material-ui/lib/raised-button';
+
+const buttonStyle = {
+  margin: 12,
+};
 
 class NewPlayerComponent extends React.Component {
   createPlayer(event) {
@@ -13,13 +19,16 @@ class NewPlayerComponent extends React.Component {
     return(
       <div>
         <form onSubmit={this.createPlayer.bind(this)}>
-          <div>
-            <label>Player Name:</label>
-            <input type="text" ref="playerName" placeholder="What's your name?"/>
-          </div>
-          <div>
-            <input type="submit" value="Save"/>
-          </div>
+          <TextField
+            ref="playerName"
+            hintText="Please enter your name"
+            floatingLabelText="Player Name"
+          /><br />
+          <RaisedButton
+            type="submit"
+            label="Save"
+            style={buttonStyle}
+          />
         </form>
       </div>
     );
