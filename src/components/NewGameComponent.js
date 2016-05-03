@@ -1,24 +1,27 @@
 import React from 'react';
+import RaisedButton from 'material-ui/lib/raised-button';
+
+const buttonStyle = {
+  margin: 12,
+};
 
 class NewGameComponent extends React.Component {
-  createGame(event) {
-    event.preventDefault();
-    console.log("Create Game Called!");
-    let newPlayer = this.refs.playerName.value;
-    this.props.onCreate(newPlayer);
-    this.refs.playerName.value = "";
-  }
+    createGame(event) {
+      event.preventDefault();
+      console.log("Create Game Called!");
+      this.props.onCreate();
+    }
 
   render() {
     return(
       <div>
         <form onSubmit={this.createGame.bind(this)}>
           <div>
-            <label>Player Name:</label>
-            <input type="text" ref="playerName" placeholder="What's your name?"/>
-          </div>
-          <div>
-            <input type="submit" value="Create Game"/>
+            <RaisedButton
+              type="submit"
+              label="Create Game"
+              style={buttonStyle}
+            />
           </div>
         </form>
       </div>

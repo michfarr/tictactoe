@@ -68,13 +68,48 @@ class App extends React.Component {
       }
     }
 
+    containerStyles() {
+      return {
+        width: "500px",
+        height: "500px",
+        margin: "auto",
+      };
+    }
+
+    headerStyle() {
+      return {
+        textAlign: "center"
+      };
+    }
+
     render() {
         return (
           <div>
             <AppBar title="Tic Tac Toe" />
+            <div style={this.containerStyles()}>
+              <h1 style={this.headerStyle()}></h1>
 
-            { this.state.currentPlayer === null &&
-              <NewPlayerComponent onCreate={this.setPlayer.bind(this)}/> }
+              { this.state.currentPlayer !== null &&
+                <p>Hi, {this.state.currentPlayer}</p> }
+
+              { this.state.currentPlayer === null &&
+                <NewPlayerComponent onCreate={this.setPlayer.bind(this)}/> }
+
+              { this.state.currentGame === null &&
+                <GameListComponent games={this.state.games} currentPlayer={this.state.currentPlayer} onSelect={this.joinGame.bind(this)}/> }
+
+              { this.state.currentPlayer && this.state.currentGame === null &&
+                <NewGameComponent onCreate={this.createGame.bind(this)}/> }
+
+              { this.state.currentGame !== null && <div className="game">
+                <p>Player one: {this.state.currentGame.playerOne}</p>
+                <p>Player two: {this.state.currentGame.playerTwo}</p>
+
+                <div>
+                  <RaisedButton onClick={this.clearCurrentGame.bind(this)} label="back" style={buttonStyle} primary={false} />
+                </div>
+              </div>}
+            </div>
           </div>
         );
     }
