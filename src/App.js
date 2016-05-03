@@ -109,6 +109,7 @@ class App extends React.Component {
                   <RaisedButton onClick={this.clearCurrentGame.bind(this)} label="back" style={buttonStyle} primary={false} />
                 </div>
               </div>}
+              <BoardComponent />
             </div>
           </div>
         );
