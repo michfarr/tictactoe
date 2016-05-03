@@ -3,14 +3,14 @@ import TextField from 'material-ui/lib/text-field';
 import RaisedButton from 'material-ui/lib/raised-button';
 
 const buttonStyle = {
-  margin: 12,
+  marginLeft: 12,
 };
 
 class NewPlayerComponent extends React.Component {
   createPlayer(event) {
     event.preventDefault();
     console.log("Create Player Called!");
-    let newPlayer = this.refs.playerName.value;
+    let newPlayer = this.refs.playerName.getValue();
     this.props.onCreate(newPlayer);
     this.refs.playerName.value = "";
   }
@@ -23,7 +23,7 @@ class NewPlayerComponent extends React.Component {
             ref="playerName"
             hintText="Please enter your name"
             floatingLabelText="Player Name"
-          /><br />
+          />
           <RaisedButton
             type="submit"
             label="Save"
