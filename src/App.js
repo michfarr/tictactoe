@@ -21,7 +21,8 @@ class App extends React.Component {
     this.state = {
       games: [],
       currentGame: null,
-      currentPlayer: null
+      currentPlayer: null,
+      playerMove: null
     };
   }
 
@@ -78,6 +79,14 @@ class App extends React.Component {
       };
     }
 
+
+    makeMove(movevalue) {
+     console.log(movevalue);
+     this.setState({
+       playerMove: movevalue
+        });
+      }
+
     render() {
       return (
         <div>
@@ -103,19 +112,19 @@ class App extends React.Component {
               </div> }
               <div>
                 <div style={divStyle}>
-                  <BoardComponent />
-                  <BoardComponent />
-                  <BoardComponent />
+                  <BoardComponent movevalue= "1" onClick={this.makeMove.bind(this)} />
+                  <BoardComponent movevalue="2" onClick={this.makeMove.bind(this)} />
+                  <BoardComponent movevalue="4" onClick={this.makeMove.bind(this)} />
                 </div>
                 <div style={divStyle}>
-                  <BoardComponent />
-                  <BoardComponent />
-                  <BoardComponent />
+                  <BoardComponent movevalue="8" onClick={this.makeMove.bind(this)} />
+                  <BoardComponent movevalue="16" onClick={this.makeMove.bind(this)} />
+                  <BoardComponent movevalue="32" onClick={this.makeMove.bind(this)} />
                 </div>
                 <div style={divStyle}>
-                  <BoardComponent />
-                  <BoardComponent />
-                  <BoardComponent />
+                  <BoardComponent movevalue="64" onClick={this.makeMove.bind(this)} />
+                  <BoardComponent movevalue="128" onClick={this.makeMove.bind(this)} />
+                  <BoardComponent movevalue="256" onClick={this.makeMove.bind(this)} />
                 </div>
 
 
