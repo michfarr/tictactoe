@@ -6,9 +6,15 @@ import NewPlayerComponent from './components/NewPlayerComponent';
 import BoardComponent from './components/BoardComponent';
 import AppBar from 'material-ui/lib/app-bar';
 import Utils from './lib/Utils';
+import Paper from 'material-ui/lib/paper';
 
-var divStyle = {
+const divStyle = {
   display: 'inline-block'
+}
+
+const paperStyle = {
+  margin: 1,
+  backgroundColor: "#EEEEEE"
 }
 
 class App extends React.Component {
@@ -73,7 +79,7 @@ class App extends React.Component {
 
     containerStyles() {
       return {
-        width: "500px",
+        width: "333px",
         height: "500px",
         margin: "auto",
       };
@@ -86,6 +92,7 @@ class App extends React.Component {
        playerMove: movevalue
         });
       }
+
 
     render() {
       return (
@@ -110,7 +117,9 @@ class App extends React.Component {
                 <p>Player one: {this.state.currentGame.playerOne}</p>
                 <p>Player two: {this.state.currentGame.playerTwo}</p>
               </div> }
+
               <div>
+              <Paper style={paperStyle} rounded={false}>
                 <div style={divStyle}>
                   <BoardComponent movevalue= "1" onClick={this.makeMove.bind(this)} />
                   <BoardComponent movevalue="8" onClick={this.makeMove.bind(this)} />
@@ -126,6 +135,7 @@ class App extends React.Component {
                   <BoardComponent movevalue="32" onClick={this.makeMove.bind(this)} />
                   <BoardComponent movevalue="256" onClick={this.makeMove.bind(this)} />
                 </div>
+                </Paper>
 
 
               </div>
