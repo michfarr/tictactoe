@@ -6,28 +6,18 @@ const style = {
   width: 100,
   margin: 5,
   textAlign: 'center',
-  display: 'inline-block',
 };
 
 class BoardComponent extends React.Component {
+  makemove() {
+    this.props.onClick(this.props.move);
+  }
+
   render (){
     return (
       <div>
-        <div>
-          <Paper style={style} zDepth={1}/>
-          <Paper style={style} zDepth={1}/>
-          <Paper style={style} zDepth={1}/>
-        </div>
-        <div>
-          <Paper style={style} zDepth={1}/>
-          <Paper style={style} zDepth={1}/>
-          <Paper style={style} zDepth={1}/>
-        </div>
-        <div>
-          <Paper style={style} zDepth={1}/>
-          <Paper style={style} zDepth={1}/>
-          <Paper style={style} zDepth={1}/>
-        </div>
+        <Paper style={style} zDepth={1} />
+
       </div>
         );
     }

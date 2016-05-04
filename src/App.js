@@ -7,6 +7,10 @@ import BoardComponent from './components/BoardComponent';
 import AppBar from 'material-ui/lib/app-bar';
 import Utils from './lib/Utils';
 
+var divStyle = {
+  display: 'inline-block'
+}
+
 class App extends React.Component {
   constructor() {
     super();
@@ -97,7 +101,25 @@ class App extends React.Component {
                 <p>Player one: {this.state.currentGame.playerOne}</p>
                 <p>Player two: {this.state.currentGame.playerTwo}</p>
               </div> }
-            <BoardComponent />
+              <div>
+                <div style={divStyle}>
+                  <BoardComponent />
+                  <BoardComponent />
+                  <BoardComponent />
+                </div>
+                <div style={divStyle}>
+                  <BoardComponent />
+                  <BoardComponent />
+                  <BoardComponent />
+                </div>
+                <div style={divStyle}>
+                  <BoardComponent />
+                  <BoardComponent />
+                  <BoardComponent />
+                </div>
+
+
+              </div>
           </div>
         </div>
       );
