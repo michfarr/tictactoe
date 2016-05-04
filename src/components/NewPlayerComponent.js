@@ -6,6 +6,16 @@ const buttonStyle = {
   marginLeft: 12,
 };
 
+const hideSubmitStyle = {
+  position: "absolute",
+  height: "0px",
+  width: "0px",
+  border: "none",
+  padding: "0px",
+  hidefocus: "true",
+  tabindex: -1
+}
+
 class NewPlayerComponent extends React.Component {
   createPlayer(event) {
     event.preventDefault();
@@ -27,7 +37,7 @@ class NewPlayerComponent extends React.Component {
           <RaisedButton
             type="submit"
             label="Save"
-            style={buttonStyle}
+            style={hideSubmitStyle}
           />
         </form>
       </div>
