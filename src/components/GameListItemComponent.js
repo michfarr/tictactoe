@@ -1,5 +1,9 @@
 import React from 'react';
 
+const containerStyle = {
+  fontFamily: "Roboto"
+}
+
 class GameListItemComponent extends React.Component {
   selectGame() {
     this.props.onClick(this.props.game);
@@ -7,7 +11,7 @@ class GameListItemComponent extends React.Component {
 
   render() {
     return (
-      <li onClick={this.selectGame.bind(this)}>Game by {this.props.game.playerOne}</li>
+      <li style={containerStyle} onClick={this.selectGame.bind(this)}>Game by {this.props.game.playerOne}</li>
     );
   }
 }
