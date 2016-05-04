@@ -1,5 +1,6 @@
 import React from 'react';
 import Paper from 'material-ui/lib/paper';
+import FontIcon from 'material-ui/lib/font-icon';
 
 const style = {
   height: 100,
@@ -9,15 +10,16 @@ const style = {
 };
 
 class BoardComponent extends React.Component {
-  makemove() {
-    this.props.onClick(this.props.move);
+
+  makeMove() {
+    console.log("Clicked")
+    this.props.onClick(this.props.movevalue);
   }
 
   render (){
     return (
       <div>
-        <Paper style={style} zDepth={1} />
-
+        <Paper onClick={this.makeMove.bind(this)} style={style} zDepth={1} />
       </div>
         );
     }
