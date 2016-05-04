@@ -7,6 +7,10 @@ import BoardComponent from './components/BoardComponent';
 import AppBar from 'material-ui/lib/app-bar';
 import Utils from './lib/Utils';
 import Paper from 'material-ui/lib/paper';
+import RaisedButton from 'material-ui/lib/raised-button';
+import NavigationClose from 'material-ui/lib/svg-icons/navigation/close';
+import ToggleRadioButtonUnchecked from 'material-ui/lib/svg-icons/toggle/radio-button-unchecked';
+
 
 const divStyle = {
   display: 'inline-block'
@@ -15,6 +19,24 @@ const divStyle = {
 const paperStyle = {
   margin: 1,
   backgroundColor: "#EEEEEE"
+}
+
+const welcomeStyle = {
+  fontFamily: "Roboto",
+  fontSize: "30px",
+  textAlign: "center"
+}
+
+const containerStyle = {
+  fontFamily: "Roboto",
+}
+
+const buttonStyle = {
+  margin: 12,
+};
+
+const iconStyle = {
+  verticalAlign: 'middle'
 }
 
 class App extends React.Component {
@@ -94,14 +116,20 @@ class App extends React.Component {
       }
 
 
+    clearCurrentGame() {
+      this.setState({
+        currentGame: null
+      });
+    }
+
     render() {
       return (
         <div>
-          <AppBar title="Tic Tac Toe" />
+          <AppBar title="Tic Tac Toe" titleStyle={{ textAlign: 'center' }}/>
           <div style={this.containerStyles()}>
 
             { this.state.currentPlayer !== null &&
-                <p>Hi, {this.state.currentPlayer}</p> }
+                <p style={welcomeStyle}>Hi, {this.state.currentPlayer}</p> }
 
             { this.state.currentPlayer === null &&
               <NewPlayerComponent onCreate={this.setPlayer.bind(this)}/> }
@@ -114,8 +142,8 @@ class App extends React.Component {
 
             { this.state.currentGame !== null &&
               <div className="game">
-                <p>Player one: {this.state.currentGame.playerOne}</p>
-                <p>Player two: {this.state.currentGame.playerTwo}</p>
+                <p style={containerStyle}>Player <NavigationClose style={iconStyle}/> : {this.state.currentGame.playerOne}</p>
+                <p style={containerStyle}>Player <ToggleRadioButtonUnchecked style={iconStyle}/> : {this.state.currentGame.playerTwo}</p>
               </div> }
 
               <div>
@@ -136,8 +164,10 @@ class App extends React.Component {
                   <BoardComponent movevalue="256" onClick={this.makeMove.bind(this)} />
                 </div>
                 </Paper>
+              </div>
 
-
+              <div>
+                <RaisedButton style={buttonStyle} onClick={this.clearCurrentGame.bind(this)}>BACK</RaisedButton>
               </div>
           </div>
         </div>

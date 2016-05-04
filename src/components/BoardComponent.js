@@ -23,9 +23,7 @@ class BoardComponent extends React.Component {
   render (){
     return (
       <div>
-
         <FlatButton onClick={this.makeMove.bind(this)} style={style} zDepth={1} label=" "/>
-
       </div>
       )
     };
