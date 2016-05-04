@@ -113,17 +113,17 @@ class App extends React.Component {
               <div>
                 <div style={divStyle}>
                   <BoardComponent movevalue= "1" onClick={this.makeMove.bind(this)} />
-                  <BoardComponent movevalue="2" onClick={this.makeMove.bind(this)} />
-                  <BoardComponent movevalue="4" onClick={this.makeMove.bind(this)} />
-                </div>
-                <div style={divStyle}>
                   <BoardComponent movevalue="8" onClick={this.makeMove.bind(this)} />
-                  <BoardComponent movevalue="16" onClick={this.makeMove.bind(this)} />
-                  <BoardComponent movevalue="32" onClick={this.makeMove.bind(this)} />
+                  <BoardComponent movevalue="64" onClick={this.makeMove.bind(this)} />
                 </div>
                 <div style={divStyle}>
-                  <BoardComponent movevalue="64" onClick={this.makeMove.bind(this)} />
+                  <BoardComponent movevalue="2" onClick={this.makeMove.bind(this)} />
+                  <BoardComponent movevalue="16" onClick={this.makeMove.bind(this)} />
                   <BoardComponent movevalue="128" onClick={this.makeMove.bind(this)} />
+                </div>
+                <div style={divStyle}>
+                  <BoardComponent movevalue="4" onClick={this.makeMove.bind(this)} />
+                  <BoardComponent movevalue="32" onClick={this.makeMove.bind(this)} />
                   <BoardComponent movevalue="256" onClick={this.makeMove.bind(this)} />
                 </div>
 
