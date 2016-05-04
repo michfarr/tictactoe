@@ -1,28 +1,34 @@
 import React from 'react';
-import Paper from 'material-ui/lib/paper';
-import FontIcon from 'material-ui/lib/font-icon';
+import PlayerOneMoveComponent from './PlayerOneMoveComponent';
+import PlayerTwoMoveComponent from './PlayerTwoMoveComponent';
+import FlatButton from 'material-ui/lib/flat-button';
+
 
 const style = {
   height: 100,
   width: 100,
   margin: 5,
-  textAlign: 'center',
+  textAlign: 'center'
 };
+
+
 
 class BoardComponent extends React.Component {
 
   makeMove() {
     console.log("Clicked")
-    this.props.onClick(this.props.movevalue);
-  }
+    this.props.onClick(this.props.movevalue)
+    }
 
   render (){
     return (
       <div>
-        <Paper onClick={this.makeMove.bind(this)} style={style} zDepth={1} />
+
+        <FlatButton onClick={this.makeMove.bind(this)} style={style} zDepth={1} label=" "/>
+
       </div>
-        );
-    }
+      )
+    };
 }
 
 export default BoardComponent;
