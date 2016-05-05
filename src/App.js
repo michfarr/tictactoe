@@ -146,7 +146,7 @@ class App extends React.Component {
               <div className="game">
                 <p style={containerStyle}>Player <NavigationClose style={iconStyle}/> : {this.state.currentGame.playerOne}</p>
                 <p style={containerStyle}>Player <ToggleRadioButtonUnchecked style={iconStyle}/> : {this.state.currentGame.playerTwo}</p>
-              </div>}
+              </div>
 
               <div>
               <Paper style={paperStyle} rounded={false}>
@@ -171,6 +171,7 @@ class App extends React.Component {
               <div>
                 <RaisedButton style={buttonStyle} onClick={this.clearCurrentGame.bind(this)}>BACK</RaisedButton>
               </div>
+              }
           </div>
         </div>
       );
