@@ -9,50 +9,43 @@ const style = {
   textAlign: 'center',
 };
 
+var turn = "0"
+
 class BoardComponent extends React.Component {
   constructor() {
     super();
 
     this.state = {
-      labelValue: " ",
-      turn: "0"
+      labelValue: " "
     }
 
   }
 
   makeMove() {
-    var turn = this.state.turn;
-    console.log(turn)
-    if (turn == "0") {
-      this.setState({
-        labelValue: "x",
-      })
-      this.setState({
-        turn: "1"
-      })
-      console.log(turn)
-    }
-    if (turn == "1") {
-      this.setState({
-        labelValue: "o"
-      })
-      this.setState({
-        turn: "0"
-      })
-      console.log(turn)
-    }
-    console.log(this.state.labelValue)
-    if (this.state.labelValue === "x") {
-      console.log("this statement is true")
-    }
+    if (this.state.labelValue === "x" || this.state.labelValue === "o") {
 
-    this.props.onClick(this.props.movevalue)
-    this.state.onClick(this.state.labelValue)
-    console.log(this.props.movevalue)
-
-    this.setState({
-      labelValue: "o"
-    })
+    }
+    if (this.state.labelValue === " ") {
+      if (turn == "0") {
+        this.setState({
+          labelValue: "x",
+        })
+        console.log(turn)
+        turn = "1"
+      }
+      else if (turn == "1") {
+        this.setState({
+          labelValue: "o"
+        })
+        console.log(turn)
+        turn = "0"
+      }
+      else {
+        console.log("something is wrong")
+      }
+      this.props.onClick(this.props.movevalue)
+      this.state.onClick(this.state.labelValue)
+    }
   }
 
   render (){

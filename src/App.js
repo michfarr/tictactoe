@@ -39,6 +39,8 @@ const iconStyle = {
   verticalAlign: 'middle'
 }
 
+var turn = "0";
+
 class App extends React.Component {
   constructor() {
     super();
