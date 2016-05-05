@@ -50,7 +50,8 @@ class App extends React.Component {
       games: [],
       currentGame: null,
       currentPlayer: null,
-      playerMove: null
+      playerMove: null,
+      labelValue: " "
     };
   }
 
@@ -108,11 +109,22 @@ class App extends React.Component {
     }
 
 
-    makeMove(movevalue) {
-     console.log(movevalue);
+    makeMove(movevalue, theLabel) {
+      console.log(movevalue);
+      if (this.state.currentPlayer && (movevalue == this.state.movevalue)) {
+        theLabel = "x"
+      }
+      if (this.state.currentPlayer === null  || movevalue !== this.state.movevalue) {
+        theLabel = " "
+      }
+    }
+
      this.setState({
-       playerMove: movevalue
+       playerMove: movevalue,
+       labelValue: theLabel
         });
+
+      this.state.onClick(this.state.labelValue)
       }
 
 
@@ -149,19 +161,19 @@ class App extends React.Component {
               <div>
               <Paper style={paperStyle} rounded={false}>
                 <div style={divStyle}>
-                  <BoardComponent movevalue= "1" onClick={this.makeMove.bind(this)} />
-                  <BoardComponent movevalue="8" onClick={this.makeMove.bind(this)} />
-                  <BoardComponent movevalue="64" onClick={this.makeMove.bind(this)} />
+                  <BoardComponent movevalue="1" theLabel={this.state.labelValue} onClick={this.makeMove.bind(this)} />
+                  <BoardComponent movevalue="8" theLabel={this.state.labelValue} onClick={this.makeMove.bind(this)} />
+                  <BoardComponent movevalue="64" theLabel={this.state.labelValue} onClick={this.makeMove.bind(this)} />
                 </div>
                 <div style={divStyle}>
-                  <BoardComponent movevalue="2" onClick={this.makeMove.bind(this)} />
-                  <BoardComponent movevalue="16" onClick={this.makeMove.bind(this)} />
-                  <BoardComponent movevalue="128" onClick={this.makeMove.bind(this)} />
+                  <BoardComponent movevalue="2" theLabel={this.state.labelValue} onClick={this.makeMove.bind(this)} />
+                  <BoardComponent movevalue="16" theLabel={this.state.labelValue} onClick={this.makeMove.bind(this)} />
+                  <BoardComponent movevalue="128" theLabel={this.state.labelValue} onClick={this.makeMove.bind(this)} />
                 </div>
                 <div style={divStyle}>
-                  <BoardComponent movevalue="4" onClick={this.makeMove.bind(this)} />
-                  <BoardComponent movevalue="32" onClick={this.makeMove.bind(this)} />
-                  <BoardComponent movevalue="256" onClick={this.makeMove.bind(this)} />
+                  <BoardComponent movevalue="4" theLabel={this.state.labelValue} onClick={this.makeMove.bind(this)} />
+                  <BoardComponent movevalue="32" theLabel={this.state.labelValue} onClick={this.makeMove.bind(this)} />
+                  <BoardComponent movevalue="256" theLabel={this.state.labelValue} onClick={this.makeMove.bind(this)} />
                 </div>
                 </Paper>
               </div>

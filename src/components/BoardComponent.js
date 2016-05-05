@@ -14,16 +14,25 @@ const style = {
 
 
 class BoardComponent extends React.Component {
+  constructor() {
+    super();
+
+    this.state = {
+      labelValue: " ",
+    }
+  }
 
   makeMove() {
     console.log("Clicked")
     this.props.onClick(this.props.movevalue)
+    console.log(this.props.movevalue)
     }
 
   render (){
+
     return (
       <div>
-        <FlatButton onClick={this.makeMove.bind(this)} style={style} zDepth={1} label=" "/>
+        <FlatButton onClick={this.makeMove.bind(this)} style={style} zDepth={1} label={this.props.theLabel}/>
       </div>
       )
     };
