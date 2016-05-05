@@ -21,8 +21,12 @@ class NewPlayerComponent extends React.Component {
     event.preventDefault();
     console.log("Create Player Called!");
     let newPlayer = this.refs.playerName.getValue();
-    this.props.onCreate(newPlayer);
-    this.refs.playerName.value = "";
+    if (newPlayer == "" || null || undefined) {
+      alert("You must enter a name to play.")
+    } else {
+      this.props.onCreate(newPlayer);
+      this.refs.playerName.value = "";
+    }
   }
 
   render() {
