@@ -28,11 +28,11 @@ const welcomeStyle = {
 }
 
 const containerStyle = {
-  fontFamily: "Roboto",
+  fontFamily: "Roboto"
 }
 
 const buttonStyle = {
-  margin: 12,
+  margin: 12
 };
 
 const iconStyle = {
@@ -50,9 +50,8 @@ class App extends React.Component {
       games: [],
       currentGame: null,
       currentPlayer: null,
-      playerMove: null,
-      labelValue: " "
-    };
+      playerMove: null
+    }
   }
 
   updateList() {
@@ -78,55 +77,44 @@ class App extends React.Component {
      });
    }
 
-   createGame() {
-     this.games.addResource({
-       playerOne: this.state.currentPlayer
-     });
-   }
+  createGame() {
+    this.games.addResource({
+      playerOne: this.state.currentPlayer
+    });
+  }
 
-   joinGame(game) {
-     console.log("Joining game...");
-     if (game.playerOne === this.state.currentPlayer || game.playerTwo === this.state.currentPlayer || game.playerTwo === null) {
-       if (game.playerOne !== this.state.currentPlayer && game.playerTwo !== this.state.currentPlayer) {
-         console.log("Joining game as player two...");
-         this.games.save(game, { playerTwo: this.state.currentPlayer });
-       }
+  joinGame(game) {
+    console.log("Joining game...");
+    if (game.playerOne === this.state.currentPlayer || game.playerTwo === this.state.currentPlayer || game.playerTwo === null) {
+      if (game.playerOne !== this.state.currentPlayer && game.playerTwo !== this.state.currentPlayer) {
+        console.log("Joining game as player two...");
+        this.games.save(game, { playerTwo: this.state.currentPlayer });
+      }
 
-       this.setState({
-         currentGame: game
-       });
-     } else {
-       window.alert("Can't touch this dung dung dung dung");
-     }
-   }
-
-    containerStyles() {
-      return {
-        width: "333px",
-        height: "500px",
-        margin: "auto",
-      };
+      this.setState({
+        currentGame: game
+      });
+    } else {
+      window.alert("Can't touch this dung dung dung dung");
     }
+  }
+
+  containerStyles() {
+    return {
+      width: "333px",
+      height: "500px",
+      margin: "auto",
+    };
+  }
 
 
-    makeMove(movevalue, theLabel) {
-      console.log(movevalue);
-      if (this.state.currentPlayer && (movevalue == this.state.movevalue)) {
-        theLabel = "x"
-      }
-      if (this.state.currentPlayer === null  || movevalue !== this.state.movevalue) {
-        theLabel = " "
-      }
-    }
+  makeMove(movevalue) {
+    console.log(movevalue);
 
-     this.setState({
-       playerMove: movevalue,
-       labelValue: theLabel
-        });
-
-      this.state.onClick(this.state.labelValue)
-      }
-
+    this.setState({
+      playerMove: movevalue,
+    });
+  }
 
     clearCurrentGame() {
       this.setState({
@@ -156,24 +144,24 @@ class App extends React.Component {
               <div className="game">
                 <p style={containerStyle}>Player <NavigationClose style={iconStyle}/> : {this.state.currentGame.playerOne}</p>
                 <p style={containerStyle}>Player <ToggleRadioButtonUnchecked style={iconStyle}/> : {this.state.currentGame.playerTwo}</p>
-              </div> }
+              </div>}
 
               <div>
               <Paper style={paperStyle} rounded={false}>
                 <div style={divStyle}>
-                  <BoardComponent movevalue="1" theLabel={this.state.labelValue} onClick={this.makeMove.bind(this)} />
-                  <BoardComponent movevalue="8" theLabel={this.state.labelValue} onClick={this.makeMove.bind(this)} />
-                  <BoardComponent movevalue="64" theLabel={this.state.labelValue} onClick={this.makeMove.bind(this)} />
+                  <BoardComponent movevalue="1"  onClick={this.makeMove.bind(this)} />
+                  <BoardComponent movevalue="8"  onClick={this.makeMove.bind(this)} />
+                  <BoardComponent movevalue="64"  onClick={this.makeMove.bind(this)} />
                 </div>
                 <div style={divStyle}>
-                  <BoardComponent movevalue="2" theLabel={this.state.labelValue} onClick={this.makeMove.bind(this)} />
-                  <BoardComponent movevalue="16" theLabel={this.state.labelValue} onClick={this.makeMove.bind(this)} />
-                  <BoardComponent movevalue="128" theLabel={this.state.labelValue} onClick={this.makeMove.bind(this)} />
+                  <BoardComponent movevalue="2"  onClick={this.makeMove.bind(this)} />
+                  <BoardComponent movevalue="16"  onClick={this.makeMove.bind(this)} />
+                  <BoardComponent movevalue="128"  onClick={this.makeMove.bind(this)} />
                 </div>
                 <div style={divStyle}>
-                  <BoardComponent movevalue="4" theLabel={this.state.labelValue} onClick={this.makeMove.bind(this)} />
-                  <BoardComponent movevalue="32" theLabel={this.state.labelValue} onClick={this.makeMove.bind(this)} />
-                  <BoardComponent movevalue="256" theLabel={this.state.labelValue} onClick={this.makeMove.bind(this)} />
+                  <BoardComponent movevalue="4"  onClick={this.makeMove.bind(this)} />
+                  <BoardComponent movevalue="32"  onClick={this.makeMove.bind(this)} />
+                  <BoardComponent movevalue="256"  onClick={this.makeMove.bind(this)} />
                 </div>
                 </Paper>
               </div>
