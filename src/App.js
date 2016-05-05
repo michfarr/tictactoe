@@ -146,8 +146,9 @@ class App extends React.Component {
               <div className="game">
                 <p style={containerStyle}>Player <NavigationClose style={iconStyle}/> : {this.state.currentGame.playerOne}</p>
                 <p style={containerStyle}>Player <ToggleRadioButtonUnchecked style={iconStyle}/> : {this.state.currentGame.playerTwo}</p>
-              </div>
+              </div> }
 
+            { this.state.currentGame !== null &&
               <div>
               <Paper style={paperStyle} rounded={false}>
                 <div style={divStyle}>
@@ -166,12 +167,13 @@ class App extends React.Component {
                   <BoardComponent movevalue="256"  onClick={this.makeMove.bind(this)} />
                 </div>
                 </Paper>
-              </div>
+              </div> }
 
+            { this.state.currentGame !== null &&
               <div>
                 <RaisedButton style={buttonStyle} onClick={this.clearCurrentGame.bind(this)}>BACK</RaisedButton>
-              </div>
-              }
+              </div> }
+
           </div>
         </div>
       );
