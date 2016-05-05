@@ -1,5 +1,7 @@
 import React from 'react';
 import FlatButton from 'material-ui/lib/flat-button';
+import NavigationClose from 'material-ui/lib/svg-icons/navigation/close';
+import ToggleRadioButtonUnchecked from 'material-ui/lib/svg-icons/toggle/radio-button-unchecked';
 
 
 const style = {
@@ -28,14 +30,14 @@ class BoardComponent extends React.Component {
     if (this.state.labelValue === " ") {
       if (turn == "0") {
         this.setState({
-          labelValue: "x",
+          labelValue: <NavigationClose />,
         })
         console.log(turn)
         turn = "1"
       }
       else if (turn == "1") {
         this.setState({
-          labelValue: "o"
+          labelValue: <ToggleRadioButtonUnchecked />,
         })
         console.log(turn)
         turn = "0"
@@ -50,9 +52,9 @@ class BoardComponent extends React.Component {
 
   render (){
     return (
-      <div key={this.props.movevalue} onClick={this.makeMove.bind(this)} style={style} >
+      <FlatButton key={this.props.movevalue} onClick={this.makeMove.bind(this)} style={style} >
         {this.state.labelValue}
-      </div>
+      </FlatButton>
     )
   };
 }
