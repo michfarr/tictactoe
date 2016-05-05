@@ -11,6 +11,11 @@ const style = {
   textAlign: 'center',
 };
 
+const iconStyle = {
+  height: 80,
+  width: 80
+}
+
 var turn = "0"
 
 class BoardComponent extends React.Component {
@@ -30,14 +35,14 @@ class BoardComponent extends React.Component {
     if (this.state.labelValue === " ") {
       if (turn == "0") {
         this.setState({
-          labelValue: <NavigationClose />,
+          labelValue: <NavigationClose style={iconStyle}/>,
         })
         console.log(turn)
         turn = "1"
       }
       else if (turn == "1") {
         this.setState({
-          labelValue: <ToggleRadioButtonUnchecked />,
+          labelValue: <ToggleRadioButtonUnchecked style={iconStyle}/>,
         })
         console.log(turn)
         turn = "0"
