@@ -21,7 +21,7 @@ class NewPlayerComponent extends React.Component {
     event.preventDefault();
     console.log("Create Player Called!");
     let newPlayer = this.refs.playerName.getValue();
-    if (newPlayer == "" || null || undefined) {
+    if (newPlayer === "" || null || undefined) {
       alert("You must enter a name to play.")
     } else {
       this.props.onCreate(newPlayer);
@@ -33,16 +33,10 @@ class NewPlayerComponent extends React.Component {
     return(
       <div>
         <form onSubmit={this.createPlayer.bind(this)}>
-          <TextField
-            ref="playerName"
-            hintText="Please enter your name"
-            floatingLabelText="Player Name"
-          />
-          <RaisedButton
-            type="submit"
-            label="Save"
-            style={hideSubmitStyle}
-          />
+          <TextField ref="playerName"
+            hintText="Please enter your name" floatingLabelText="Player Name" />
+          <RaisedButton type="submit"
+            label="Save" style={hideSubmitStyle} />
         </form>
       </div>
     );
